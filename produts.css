@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Шапка сайта */
+.header {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #ff00ff;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logo h1:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.logo-image img {
+    height: 60px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+}
+
+/* Баннер */
+.banner {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Описание плана */
+.plan-description {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.plan-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #ff00ff;
+}
+
+.plan-header img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.plan-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.plan-header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+    color: #ffffff;
+}
+
+.plan-details {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+}
+
+.plan-details h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #ff00ff;
+}
+
+.plan-details ul {
+    list-style: none;
+    font-size: 1.1em;
+    line-height: 2;
+}
+
+.plan-details li {
+    margin-bottom: 10px;
+    padding-left: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.plan-details li:hover {
+    background: rgba(255, 0, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.plan-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #ff00ff;
+}
+
+.price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.price-amount {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.price-currency {
+    font-size: 1.8em;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.buy-btn {
+    background: linear-gradient(45deg, #ff00ff, #6666ff);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.3em;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.buy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+}
+
+/* Игры месяца */
+.games-of-month {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.game-card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff00ff;
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.3);
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.game-info p {
+    font-size: 0.9em;
+    opacity: 0.8;
+    color: #ff00ff;
+}
+
+/* Карусель товаров */
+.product-carousel {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+}
+
+.product-item {
+    min-width: 280px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.product-item:hover {
+    background: rgba(255, 0, 255, 0.1);
+    border-color: #ff00ff;
+    transform: translateY(-3px);
+}
+
+.product-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.product-item .product-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ff00ff;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.carousel-btn {
+    background: rgba(255, 0, 255, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.carousel-btn:hover {
+    background: #ff00ff;
+    transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .plan-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .plan-header img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .plan-header h1 {
+        font-size: 1.8em;
+    }
+
+    .plan-price-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .price-amount {
+        font-size: 2.5em;
+    }
+
+    .buy-btn {
+        width: 100%;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    .carousel-inner {
+        gap: 10px;
+    }
+
+    .product-item {
+        min-width: 220px;
+    }
+}
