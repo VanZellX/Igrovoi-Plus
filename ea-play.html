@@ -7,31 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <h1>🎮 ИГРОВОЙ</h1>
-            </div>
-            <div class="logo-image">
-                <img src="static/logo.png" alt="Logo">
-            </div>
+
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <h1>🎮 ИГРОВОЙ</h1>
         </div>
-    </header>
-
-    <main class="product-content">
-        <div class="product-banner">
-            <img src="static/eaplaybaner.webp" alt="EA Play Banner">
+        <div class="logo-image">
+            <img src="static/logo.png" alt="Logo">
         </div>
+    </div>
+</header>
 
-        <section class="product-description">
-            <h2>EA Play</h2>
-            <p>Триумфальные, удивительные и судьбоносные моменты ждут вас в коллекции лучших игр EA на PlayStation, в том числе в EA SPORTS FC, F1, The Sims, STAR WARS и других знаменитых сериях.</p>
-        </section>
+<main class="product-content">
 
-        <section class="games-section">
-            <h2>🎮 Игры в коллекции</h2>
-            <div class="games-carousel">
-                <div class="games-track">
+    <div class="product-banner">
+        <img src="static/eaplaybaner.webp" alt="EA Play Banner">
+    </div>
+
+    <section class="product-description">
+        <h2>EA Play</h2>
+        <p>
+            Триумфальные, удивительные и судьбоносные моменты ждут вас в коллекции лучших игр EA на PlayStation,
+            в том числе в EA SPORTS FC, F1, The Sims, STAR WARS и других знаменитых сериях.
+        </p>
+    </section>
+
+    <section class="games-section">
+        <h2>🎮 Игры в коллекции</h2>
+
+        <div class="games-carousel">
+
+            <button class="carousel-btn left">&#10094;</button>
+            <button class="carousel-btn right">&#10095;</button>
+
+            <div class="games-track">
                     <div class="game-card">
                         <img src="static/EA_PLAY/FC24.webp" alt="Игра 1">
                         <h3>EA SPORTS FC 24</h3>
@@ -133,65 +143,64 @@
                         <h5>кооперативная экшн-RPG в жанре охоты на монстров (hunting action), созданная Omega Force и EA. Игроки охотятся на гигантских существ-кемоно, обладающих силой природы, в мире, вдохновленном феодальной Японией. Главная особенность — использование древних технологий «каракури» для строительства ловушек и приспособлений в бою, что отличает игру от аналогов.</h5>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <div class="back-button-container">
-            <a href="index.html" class="back-button">← Назад</a>
         </div>
-    </main>
+    </section>
 
-    <script>
-        // Простая карусель без сложной логики
-        document.addEventListener('DOMContentLoaded', () => {
-            const track = document.querySelector('.games-track');
-            let isDragging = false;
-            let startX, scrollLeft;
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">← Назад</a>
+    </div>
 
-            track.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                startX = e.pageX - track.offsetLeft;
-                scrollLeft = track.scrollLeft;
-                track.style.cursor = 'grabbing';
-            });
+</main>
 
-            track.addEventListener('mouseleave', () => {
-                isDragging = false;
-                track.style.cursor = 'grab';
-            });
+<script>
+document.querySelectorAll('.games-carousel').forEach(carousel => {
 
-            track.addEventListener('mouseup', () => {
-                isDragging = false;
-                track.style.cursor = 'grab';
-            });
+    const track = carousel.querySelector('.games-track');
+    const btnLeft = carousel.querySelector('.left');
+    const btnRight = carousel.querySelector('.right');
 
-            track.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                e.preventDefault();
-                const x = e.pageX - track.offsetLeft;
-                const walk = (x - startX) * 2;
-                track.scrollLeft = scrollLeft - walk;
-            });
+    const scrollAmount = 320;
 
-            // Для тач-устройств
-            track.addEventListener('touchstart', (e) => {
-                isDragging = true;
-                startX = e.touches[0].pageX - track.offsetLeft;
-                scrollLeft = track.scrollLeft;
-            });
+    btnRight.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
 
-            track.addEventListener('touchend', () => {
-                isDragging = false;
-            });
+    btnLeft.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
 
-            track.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                e.preventDefault();
-                const x = e.touches[0].pageX - track.offsetLeft;
-                const walk = (x - startX) * 2;
-                track.scrollLeft = scrollLeft - walk;
-            });
-        });
-    </script>
+    // Drag мышкой
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        track.style.cursor = 'grabbing';
+    });
+
+    track.addEventListener('mouseleave', () => {
+        isDown = false;
+        track.style.cursor = 'grab';
+    });
+
+    track.addEventListener('mouseup', () => {
+        isDown = false;
+        track.style.cursor = 'grab';
+    });
+
+    track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+});
+</script>
+
 </body>
 </html>

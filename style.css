@@ -497,3 +497,196 @@ a.pricing-card:hover {
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
     color: white;
 }
+
+/* ============================= */
+/* PRO CAROUSEL FOR GAMES       */
+/* ============================= */
+
+.games-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.games-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 20px 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.games-track::-webkit-scrollbar {
+    display: none;
+}
+
+.game-card {
+    flex: 0 0 auto;
+    width: 280px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Кнопки */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background: rgba(0,0,0,0.9);
+}
+
+.carousel-btn.left {
+    left: 5px;
+}
+
+.carousel-btn.right {
+    right: 5px;
+}
+
+/* Адаптив */
+
+@media (max-width: 1024px) {
+    .game-card {
+        width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-card {
+        width: 200px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-card {
+        width: 160px;
+    }
+}
+
+/* ============================= */
+/* PRO RESPONSIVE CAROUSEL      */
+/* ============================= */
+
+.games-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.games-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    padding: 20px 10px;
+}
+
+.games-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.game-card {
+    flex: 0 0 calc((100% - 60px) / 4); /* 4 карточки на ПК */
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Пропорции изображения */
+.game-card img {
+    width: 100%;
+    aspect-ratio: 2 / 3; /* сохраняем пропорции */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ===== КНОПКИ ===== */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background: rgba(0,0,0,0.9);
+}
+
+.carousel-btn.left { left: 5px; }
+.carousel-btn.right { right: 5px; }
+
+/* ============================= */
+/* АДАПТИВ                      */
+/* ============================= */
+
+/* Планшет — 3 карточки */
+@media (max-width: 1200px) {
+    .game-card {
+        flex: 0 0 calc((100% - 40px) / 3);
+    }
+}
+
+/* Малый планшет — 2 карточки */
+@media (max-width: 900px) {
+    .game-card {
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+}
+
+/* Телефон — 1.2 карточки (виден край следующей) */
+@media (max-width: 600px) {
+    .game-card {
+        flex: 0 0 80%;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
